@@ -7,8 +7,10 @@
 
   --font-family: "Overpass", sans-serif;
 
+  --font-size-100: 0.875rem;
   --font-size-200: 0.9375rem;
   --font-size-300: 1rem;
+  --font-size-400: 1.5rem;
   --font-size-500: 1.75rem;
 
   --font-weight-400: 400;
@@ -98,14 +100,6 @@ select {
   }
 }
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
-}
-
 /*  =========
     General Styling
     ========= */
@@ -127,8 +121,15 @@ body {
   transform: translate(-50%, -50%);
   width: clamp(23.4375rem, 90%, 26rem);
   max-width: 90%;
-  border-radius: 30px;
-  padding: 2rem;
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+@media (min-width: 25rem) {
+  .rating-card-wrapper {
+    padding: 2rem;
+    border-radius: 30px;
+  }
 }
 
 .rating-icon {
@@ -140,35 +141,62 @@ body {
 
 .rating-title {
   color: var(--clr-neutral-100);
-  font-size: var(--font-size-500);
+  font-size: var(--font-size-400);
   font-weight: var(--font-weight-400);
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
+@media (min-width: 25rem) {
+  .rating-title {
+    margin-top: 2rem;
+    font-size: var(--font-size-500);
+  }
+}
+
 .rating-description {
-  font-size: var(--font-size-200);
+  font-size: var(--font-size-100);
   color: var(--clr-neutral-200);
-  font-weight: var(--font-weight-400);
-  line-height: 1.75;
+  line-height: 1.6;
+}
+
+@media (min-width: 25rem) {
+  .rating-description {
+    font-size: var(--font-size-200);
+  }
 }
 
 .rating-stars-wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  padding: 2rem 0;
+  padding: 1.75rem 0 1.5rem 0;
+}
+
+@media (min-width: 25rem) {
+  .rating-stars-wrapper {
+    padding: 2rem 0;
+  }
 }
 
 .rating-star {
   display: flex;
+  font-size: var(--font-size-100);
   background-color: var(--clr-neutral-600);
   color: var(--clr-neutral-200);
-  width: 50px;
-  height: 50px;
+  width: 2.75rem;
+  height: 2.75rem;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  padding: 1rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 25rem) {
+  .rating-star {
+    font-size: var(--font-size-200);
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .rating-star:hover {
@@ -177,7 +205,7 @@ body {
   color: var(--clr-neutral-100);
 }
 
-.rating-star:active {
+.rating-active {
   cursor: pointer;
   background-color: var(--clr-neutral-300);
   color: var(--clr-neutral-100);
@@ -197,10 +225,31 @@ body {
   border: 0;
   border-radius: 100vw;
   padding: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .rating-submit:hover {
   cursor: pointer;
   background-color: var(--clr-neutral-100);
   color: var(--clr-primary-500);
+}
+
+@media (min-width: 25rem) {
+  .rating-submit {
+    padding: 1rem;
+    margin: 0;
+  }
+}
+
+footer {
+  color: var(--clr-neutral-200);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 11px;
+  text-align: center;
+  padding: 1rem;
+}
+footer a {
+  color: var(--clr-neutral-100);
 }
